@@ -1,0 +1,43 @@
+┌──────────────────┐
+│     Frontend     │
+│                  │
+│ Issue title      │
+│ Issue details    │
+└────────┬─────────┘
+         │
+         │ POST /api/solve
+         ▼
+┌──────────────────────────┐
+│         FastAPI          │
+│                          │
+│  Validate request        │
+│  Build LLM prompt        │
+│  Call LLM API            │
+│  Validate response       │
+└────────────┬─────────────┘
+             │
+             │ API request
+             ▼
+┌──────────────────────────┐
+│        LLM Provider      │
+│                          │
+│   Issue + system prompt  │
+│           ↓              │
+│   Solution + commands    │
+└────────────┬─────────────┘
+             │
+             │ JSON
+             ▼
+┌──────────────────────────┐
+│         FastAPI          │
+└────────────┬─────────────┘
+             │
+             ▼
+┌──────────────────┐
+│     Frontend     │
+│                  │
+│ Solution         │
+│ Root cause       │
+│ Test commands    │
+│ Warnings         │
+└──────────────────┘
